@@ -1,0 +1,456 @@
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: 100svh;
+  padding: 32px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* center the game vertically in the viewport */
+  gap: 20px;
+  text-align: center;
+}
+
+/* --- theme toggle --- */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  line-height: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: border-color 120ms, background 120ms;
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+/* --- main menu button --- */
+.menu-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: border-color 120ms;
+}
+.menu-btn:hover {
+  border-color: var(--accent);
+}
+
+/* --- cheatsheet modal --- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.modal-panel {
+  width: 100%;
+  max-width: 640px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--text);
+}
+.modal-close {
+  width: 32px;
+  height: 32px;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+}
+.modal-close:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.cheat-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 20px 16px;
+  overflow-y: auto;
+}
+
+.cheat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.cheat-row:last-child {
+  border-bottom: none;
+}
+
+.cheat-quote {
+  flex: 1;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.cheat-seq {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.cheat-chip {
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 6px;
+}
+
+/* --- menu layout / filter --- */
+.controls-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.menu-hint {
+  margin: 0;
+  font-size: 14px;
+  color: var(--fail);
+}
+
+.menu-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.menu-option input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* --- answer-time setting --- */
+.time-setting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.time-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.time-presets {
+  display: flex;
+  gap: 8px;
+}
+.preset-btn {
+  padding: 7px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: border-color 120ms, background 120ms;
+}
+.preset-btn:hover {
+  border-color: var(--accent);
+}
+.preset-btn.is-active {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.time-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.time-controls input[type='range'] {
+  width: 200px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.time-number {
+  width: 64px;
+  padding: 6px 8px;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.time-unit {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.filter-empty {
+  padding: 20px;
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.filter-actions {
+  display: flex;
+  gap: 16px;
+  padding: 12px 20px 0;
+}
+.link-btn {
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  background: transparent;
+  border: none;
+}
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.filter-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px 20px 16px;
+  overflow-y: auto;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: var(--text);
+  cursor: pointer;
+}
+.filter-item input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* --- Nael + speech bubble --- */
+.nael-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speech-bubble {
+  position: relative;
+  max-width: 520px;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 22px;
+  margin-bottom: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-size: 19px;
+  line-height: 1.4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* little tail pointing down toward Nael */
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid transparent;
+  border-top-color: var(--surface);
+  border-bottom: 0;
+}
+
+.speech-bubble.is-idle {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.nael-img {
+  width: 200px;
+  height: auto;
+  user-select: none;
+}
+
+/* --- status line --- */
+.status {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+}
+.status-playing {
+  color: var(--text-muted);
+}
+.status-success {
+  color: var(--success);
+}
+.status-failed {
+  color: var(--fail);
+}
+
+/* --- timer --- */
+.timer {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 26px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.timer-bar {
+  height: 100%;
+  /* width is set inline; transition keeps the depletion smooth between ticks */
+  transition: width 60ms linear;
+}
+.timer-bar.tone-round {
+  background: var(--accent);
+}
+
+.timer-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* --- sequence track --- */
+.sequence-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.seq-slot {
+  min-width: 64px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+.seq-slot.is-done {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* --- controls / buttons --- */
+.controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.mechanic-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.mechanic-btn {
+  min-width: 110px;
+  padding: 14px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: background 120ms, border-color 120ms, transform 60ms;
+}
+.mechanic-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+.mechanic-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  background: var(--bg);
+}
+
+.primary-btn {
+  padding: 14px 32px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  transition: background 120ms;
+}
+.primary-btn:hover {
+  background: var(--accent-strong);
+}
+
+.secondary-btn {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+}
+.secondary-btn:hover {
+  background: var(--bg);
+}

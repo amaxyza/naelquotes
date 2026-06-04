@@ -1,0 +1,51 @@
+:root {
+  /* Flat, minimal palette. One calm accent against neutral surfaces. */
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --border: #d9dce1;
+  --text: #1c1f26;
+  --text-muted: #6b7280;
+  --accent: #2f6f8f;
+  --accent-strong: #245870;
+  --success: #3f8f5e;
+  --fail: #c0524a;
+
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dark theme: applied via <html data-theme="dark"> (see useTheme). */
+:root[data-theme='dark'] {
+  --bg: #14161a;
+  --surface: #1f242b;
+  --border: #353b44;
+  --text: #e7eaee;
+  --text-muted: #9aa3ad;
+  --accent: #4d9fc4;
+  --accent-strong: #6bb4d6;
+  --success: #57b07a;
+  --fail: #d97169;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
